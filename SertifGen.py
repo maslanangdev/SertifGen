@@ -1,6 +1,6 @@
 from PIL import Image
 import os
-import qrcode
+# import qrcode
 import csv
 import base64
 import inkex
@@ -8,21 +8,24 @@ from inkex.command import inkscape
 
 
 
-class SertifGen(inkex.base.TempDurMixin, inkex.base.InkscapeExtension):
+class SertifGen(inkex.base.TempDirMixin, inkex.base.InkscapeExtension):
     def add_arguments(self, pars):
-        pars.add_argument("--csv-path", type=str, default="")
+        pars.add_argument("--csv-input", type=str, default="")
         pars.add_argument("--target", type=str, default="")
 
+
+        # why we're still here
+        pars.add_argument("--main", type=str, default="")
+
     def effect(self):
-        data = "sertifPanitia.csv"
+        # data = "sertifPanitia.csv"
+        data = self.options.csv_input
 
         with open(data, newline='') as fi:
             reader = csv.reader(fi)
             DATA = list(reader)
 
         fi.close
-
-        ranged = len(DATA)
 
         raw = self.document
 
@@ -39,15 +42,18 @@ class SertifGen(inkex.base.TempDurMixin, inkex.base.InkscapeExtension):
             with open("modified.svg", "w") as wrt:
                 wrt.write(cooked)
             wrt.close()
-            os.system(f'inkscapecom --export-filename="output/{i[0]}.pdf" modified.svg')
+            # inkscape()'inkscapecom --export-filename="output/{i[0]}.pdf" modified.svg')
             print("Done : " + i[0])
 
             print("===================================")
 
 
-
-        infile.close()
-
+    def load(self, stream):
+        return str(stream.read(), "utf-8")
+    
+    def save(self, stream):
+        # doing nothing
+        pass
 
 if __name__ == '__main__':
-    SertifGen.run()
+    SertifGen().run()

@@ -8,8 +8,8 @@
 
 
 <param name="main" type="notebook">
-        <page name="main" gui-text="main">
-                <param gui-text="CSV File Path : " gui-description="fileCSV nya kakak" name="csv_input" type="path" filetypes="csv"></param>
+        <page name="mainMenu" gui-text="main">
+                <param gui-text="CSV File Path : " gui-description="fileCSV nya kakak" name="csv-input" type="path" filetypes="csv"></param>
 
 
 

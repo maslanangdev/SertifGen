@@ -16,6 +16,8 @@ class SertifGen(inkex.base.TempDirMixin, inkex.base.InkscapeExtension):
 
         # why we're still here
         pars.add_argument("--main", type=str, default="")
+        pars.add_argument("--id", type=str, default="")
+
 
     def effect(self):
         # data = "sertifPanitia.csv"
@@ -29,6 +31,9 @@ class SertifGen(inkex.base.TempDirMixin, inkex.base.InkscapeExtension):
 
         raw = self.document
 
+
+        modifiedIngredients = os.path.join(self.tempdir, "tempSertif.svg")
+
         for i in DATA[1:]:
                 
             cooked = raw
@@ -37,15 +42,21 @@ class SertifGen(inkex.base.TempDirMixin, inkex.base.InkscapeExtension):
                 toReplace = "{_" + DATA[0][y] + "_}"
                 print(toReplace, end=" => ")
                 cooked = cooked.replace(toReplace, i[y])
-                print(i[y])
+                with open("ReadyDebug.txt", "a") as wrt:
+                    wrt.write(toReplace)
 
-            with open("modified.svg", "w") as wrt:
+            with open(modifiedIngredients, "w") as wrt:
                 wrt.write(cooked)
-            wrt.close()
-            # inkscape()'inkscapecom --export-filename="output/{i[0]}.pdf" modified.svg')
-            print("Done : " + i[0])
+            
 
-            print("===================================")
+            wrt.close()
+            cli_process = inkscape(modifiedIngredients, actions=f'export-filename:{i[0]}.pdf;export-do;FileClose')
+            
+            self.debug(cli_process)
+            # print("Done : " + i[0])
+
+            # print("===================================")
+        return True
 
 
     def load(self, stream):

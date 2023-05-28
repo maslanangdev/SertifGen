@@ -8,8 +8,11 @@
 
 
 <param name="main" type="notebook">
-        <page name="mainMenu" gui-text="main">
-                <param gui-text="CSV File Path : " gui-description="fileCSV nya kakak" name="csv-input" type="path" filetypes="csv"></param>
+        <page name="mainMenu" gui-text="Main Menu">
+
+                <label appearance="header">SertifGen by maslanang</label>
+
+                <param gui-text="CSV File path : " gui-description="CSV file path" name="csv-input" type="path" filetypes="csv"></param>
 
 
 
@@ -18,6 +21,8 @@
                         <item value="svg">SVG</item>
                         <item value="png">PNG</item>
                 </param>
+
+                <param gui-text="Export path : " gui-description="export directory (where do you want to save the exported file(s)" name="export-path" type="path" mode="folders"></param>
         </page>
 </param>
 

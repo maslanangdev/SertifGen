@@ -1,15 +1,8 @@
-
 import os
 import csv
 
 import inkex
 from inkex.command import inkscape
-
-
-# there's plan to add qrcode support using qrcode package but maybe later
-# import qrcode
-# import base64
-# from PIL import Image
 
 
 class SertifGen(inkex.base.TempDirMixin, inkex.base.InkscapeExtension):

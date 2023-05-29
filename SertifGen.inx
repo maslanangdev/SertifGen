@@ -24,6 +24,25 @@
 
                 <param gui-text="Export path : " gui-description="export directory (where do you want to save the exported file(s)" name="export-path" type="path" mode="folders"></param>
         </page>
+
+        <page name="help" gui-text="Help">
+
+                <label appearance="header">How to Use</label>
+                <label xml:space="preserve">- prepare the CSV file, you can create it from spreadsheet editor like LibreOffice Calc (recommended)</label>
+                <label xml:space="preserve">- prepare your design in inkscape, use text tool to define the variables and match it with your first row of csv. For example if there's a row named name in your data then use {_name_} in your design</label>
+                <label xml:space="preserve">- the first row should contains variables name</label>
+                <label xml:space="preserve">- browse for your csv file, choose your output format, define your export path, then hit Apply</label>
+                <label xml:space="preserve">- your Inkscape might be not responding for a while, it's okay (for now) because it's just a side effect of exporting your files</label>
+                <label xml:space="preserve">- if there's something still confuse you, there's examples files that I prepared for demonstration purpose</label>
+                <spacer></spacer>
+                <label appearance="header">I think I found a bug, and a feature that I want...</label>
+                <label xml:space="preserve">put it here : </label>
+                <label appearance="url">https://github.com/maslanangdev/SertifGen/issues/new</label>
+                                                
+                
+        
+        </page>
+
 </param>
 
 <effect needs-live-preview="false">

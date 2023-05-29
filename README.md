@@ -9,6 +9,7 @@ copy `SertifGen.inx` and `SertifGen.py` to inkscape extensions directory, it's u
 * the first row should contains variables name
 * prepare your design in inkscape, use text tool to define the variables and match it with your first row of csv. For example if there's a row named `name` in your data then use `{_name_}` in your design
 * then in Inkscape, go to `Extensions -> Export -> SertifGen` then browse for your csv file, choose your output format, define your export path, then hit `Apply`
+* your Inkscape might be not responding while exporting your file(s), it's okay (for now)
 * if there's something still confuse you, there's examples files that I prepared for demonstration purpose
 
 ## I have a problem, and a feature request
